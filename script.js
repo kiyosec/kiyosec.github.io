@@ -3,7 +3,7 @@ const scanResultText = document.getElementById('scan-result-text');
 const downloadReportLink = document.getElementById('download-report');
 
 // Function to simulate the scan with an animated progress bar
-function performScan() {
+function performScan(deviceType) {
     scanResultText.innerHTML = 'Scanning...';
 
     const progressBar = document.createElement('div');
@@ -17,14 +17,24 @@ function performScan() {
 
         if (progress === 100) {
             clearInterval(scanInterval);
-            const isInfected = Math.random() < 0.5; // Simulate result (50% chance of infection).
 
-            if (isInfected) {
-                scanResultText.innerHTML = 'Virus Found: The file is infected.';
+            let scanResult = '';
+            if (deviceType === 'mobile') {
+                // Detect the mobile device type (modify this logic as needed)
+                const userAgent = navigator.userAgent;
+                if (userAgent.includes('iPhone')) {
+                    scanResult = 'You are using an iPhone.';
+                } else if (userAgent.includes('Android')) {
+                    scanResult = 'You are using an Android device.';
+                } else {
+                    scanResult = 'You are using a mobile device.';
+                }
             } else {
-                scanResultText.innerHTML = 'No Virus Found: The file is safe.';
+                const isInfected = Math.random() < 0.5; // Simulate result (50% chance of infection).
+                scanResult = isInfected ? 'Virus Found: The file is infected.' : 'No Virus Found: The file is safe.';
             }
 
+            scanResultText.innerHTML = scanResult;
             downloadReportLink.style.display = 'block';
         }
     }, 20); // Simulated scanning time (2 seconds).
@@ -32,5 +42,6 @@ function performScan() {
 
 // Add event listener to the scan button
 scanButton.addEventListener('click', () => {
-    performScan();
+    const deviceType = document.querySelector('input[name="device"]:checked').value;
+    performScan(deviceType);
 });
