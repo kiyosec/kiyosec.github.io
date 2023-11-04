@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tensura - PC Security Scan</title>
+    <title>Tensura - Security Scan</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
 </head>
 <body>
     <header>
         <div class="header-container">
             <h1>Welcome to <span class="highlight">Tensura</span></h1>
-            <p>Your PC's security is our top priority.</p>
+            <p>Your device's security is our top priority.</p>
         </div>
     </header>
 
     <section id="scan-options">
         <h2>What would you like to scan for?</h2>
+        <label>
+            <input type="radio" name="device" value="pc" checked> PC
+        </label>
+        <label>
+            <input type="radio" name="device" value="mobile"> Mobile
+        </label>
         <ul>
             <li>Viruses</li>
             <li>Keyloggers</li>
@@ -26,18 +32,18 @@
 
     <section id="scan-button">
         <h3>Start Your Scan Now</h3>
-        <button id="start-scan">Scan My PC</button>
+        <button id="start-scan">Scan My Device</button>
     </section>
 
     <section id="scan-results">
         <h2>Scan Results</h2>
-        <div id="scan-result-text">Scan your PC to see the results.</div>
+        <div id="scan-result-text">Scan your device to see the results.</div>
         <a id="download-report" href="#" style="display: none;">Download Scan Report</a>
     </section>
 
     <footer>
         <div class="footer-container">
-            <p>&copy; 2023 Tensura PC Security Scan</p>
+            <p>&copy; 2023 Tensura Security Scan</p>
         </div>
     </footer>
 
