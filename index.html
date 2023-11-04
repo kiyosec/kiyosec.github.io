@@ -16,10 +16,10 @@
 
     <section id="scan-options">
         <h2>What would you like to scan for?</h2>
-        <label>
+        <label class="option">
             <input type="radio" name="device" value="pc" checked> PC
         </label>
-        <label>
+        <label class="option">
             <input type="radio" name="device" value="mobile"> Mobile
         </label>
         <ul>
@@ -38,6 +38,7 @@
     <section id="scan-results">
         <h2>Scan Results</h2>
         <div id="scan-result-text">Scan your device to see the results.</div>
+        <div class="loading-animation"></div> <!-- Loading animation container -->
         <a id="download-report" href="#" style="display: none;">Download Scan Report</a>
     </section>
 
