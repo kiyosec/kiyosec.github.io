@@ -37,7 +37,7 @@ function performScan(deviceType) {
             scanResultText.innerHTML = scanResult;
             downloadReportLink.style.display = 'block';
         }
-    }, 20); // Simulated scanning time (2 seconds).
+    }, 15 * 1000); // Decreased delay to 15 seconds (15 * 1000 milliseconds).
 }
 
 // Add event listener to the scan button
